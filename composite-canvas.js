@@ -29,14 +29,7 @@ CompositeCanvas.prototype.addLayer = function(canvas, width, height) {
 // remove a canvas
 CompositeCanvas.prototype.removeLayer = function(canvas) {
 	for (var i = 0, n = this.canvasLayer.length; i < n; i++) {
-	    if (this.canvasLayer[i] == canvas) {						
-		    // first copy canvas to buffer									
-			var curCanvas = document.getElementById( this.canvasLayer[i] ),
-			    curCtx = curCanvas.getContext('2d'),
-			    bufCanvas = document.getElementById('buffer'),
-			    bufCtx = bufCanvas.getContext('2d');									
-			// draw canvas to buffer
-			bufCtx.drawImage(curCanvas, 0, 0);									 						
+	    if (this.canvasLayer[i] == canvas) {															 						
 			this.canvasLayer.splice(i, 1); 	
 			this.elements.splice(i, 1);
 			var ele = document.getElementById(canvas);
@@ -45,23 +38,11 @@ CompositeCanvas.prototype.removeLayer = function(canvas) {
 	}			
 }									
             						
-CompositeCanvas.prototype.canvasToBuffer = function(canvas) {								
-	var curCanvas = document.getElementById( canvas ),
-		bufCtx = this.getCtx('buffer');									
+CompositeCanvas.prototype.canvasToCanvas = function(canvas1, canvas2) {								
+	var curCanvas = document.getElementById(canvas1),
+		bufCtx = this.getCtx(canvas2);									
 	bufCtx.drawImage(curCanvas, 0, 0);
 	return true;
-}
-			
-CompositeCanvas.prototype.bufferToCanvas = function(canvas) {						
-    var bufCanvas = document.getElementById('buffer'),				   
-	    curCtx = this.getCtx( canvas );									
-	curCtx.drawImage(bufCanvas, 0, 0);
-}
-			
-CompositeCanvas.prototype.canvasToRender = function(canvas) {									
-	var curCanvas = document.getElementById( canvas ),
-		renCtx = this.getCtx('render');									
-	renCtx.drawImage(curCanvas, 0, 0);
 }
 
 // helper for debugging
