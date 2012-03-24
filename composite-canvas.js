@@ -1,10 +1,8 @@
 // basic properties
 var CompositeCanvas = function (width, height)  {
-	this.canvasLayer = [];
-	this.elements = [];
+	this.canvasLayer = [], this.elements = [], this.color = '#fff';
 	this.width = (width !== undefined) ? width : 500;
-	this.height = (height !== undefined) ? height : 400;
-	this.color = '#fff';
+	this.height = (height !== undefined) ? height : 400;	
 }
 
 // get context
