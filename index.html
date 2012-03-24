@@ -7,20 +7,27 @@
 		<script>		
 		window.onload = function () {									
             var width = 200, height = 200;   		
-			// usage of composite canvas
 			var compoCanvas = new CompositeCanvas(width, height);
 			compoCanvas.addLayer('canvas1');
 			compoCanvas.addLayer('canvas2');			
 			compoCanvas.addLayer('canvas3');			
+			compoCanvas.addLayer('canvas4');
 
             var ctx = compoCanvas.getCtx('canvas1', '#f00');
 			ctx.fillRect(0, 0, width/2, height);
 			
-			var ctx = compoCanvas.getCtx('canvas2', '#00f');
+			var ctx = compoCanvas.getCtx('canvas2', '#0f0');
 			ctx.fillRect(width/2, 0, width, height);
 			
-			compoCanvas.canvasToCanvas('canvas1', 'canvas3');
-			compoCanvas.canvasToCanvas('canvas2', 'canvas3');
+			var ctx = compoCanvas.getCtx('canvas3', '#00f');
+			ctx.fillRect(width/2, 0, width, height/2);
+			
+			compoCanvas.canvasToCanvas('canvas1', 'canvas4');
+			compoCanvas.canvasToCanvas('canvas2', 'canvas4');
+			compoCanvas.canvasToCanvas('canvas3', 'canvas4');
+			
+			var ctx = compoCanvas.getCtx('canvas4');
+			ctx.fillText('Canvas', 50, 50);
 		}
 		</script>
 	</body>
