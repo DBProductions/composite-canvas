@@ -1,0 +1,27 @@
+<html>
+	<head>
+	    <style>canvas {border:1px solid #000;margin-right:15px;}</style>
+	    <script src="composite-canvas.js" type="text/javascript"></script>
+	</head>
+	<body>
+		<script>		
+		window.onload = function () {									
+            var width = 200, height = 200;   		
+			// usage of composite canvas
+			var compoCanvas = new CompositeCanvas(width, height);
+			compoCanvas.addLayer('canvas1');
+			compoCanvas.addLayer('canvas2');			
+			compoCanvas.addLayer('canvas3');			
+
+            var ctx = compoCanvas.getCtx('canvas1', '#f00');
+			ctx.fillRect(0, 0, width/2, height);
+			
+			var ctx = compoCanvas.getCtx('canvas2', '#00f');
+			ctx.fillRect(width/2, 0, width, height);
+			
+			compoCanvas.canvasToCanvas('canvas1', 'canvas3');
+			compoCanvas.canvasToCanvas('canvas2', 'canvas3');
+		}
+		</script>
+	</body>
+</html>

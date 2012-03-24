@@ -22,7 +22,8 @@ CompositeCanvas.prototype.addLayer = function(canvas, width, height) {
 	element.setAttribute('id', canvas);			
 	element.setAttribute('width', (width !== undefined) ? width + 'px' : this.width + 'px');
 	element.setAttribute('height', (height !== undefined) ? height + 'px' : this.height + 'px');
-	document.getElementById('output').appendChild(element);				
+	//document.getElementById('output').appendChild(element);			
+    document.getElementsByTagName('body')[0].appendChild(element);	
 	this.elements.push(element);	
 }
 
