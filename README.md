@@ -1,3 +1,3 @@
-# CompositeCanvas 
+# Composite canvas 
 
-Is a helper object to handle n canvas elements as layer.
+Helper object to handle n canvas elements as layer.
