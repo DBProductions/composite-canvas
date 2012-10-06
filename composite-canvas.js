@@ -7,8 +7,8 @@
 /** get context */
 CompositeCanvas.prototype.getCtx = function(canvas, color) {
     var c = document.getElementById(canvas), ctx = c.getContext('2d');
-	(undefined !== color) ? ctx.fillStyle = color : ctx.fillStyle = this.color;
-	return ctx;
+    (undefined !== color) ? ctx.fillStyle = color : ctx.fillStyle = this.color;
+    return ctx;
 }
 
 /** add a canvas */
@@ -25,21 +25,19 @@ CompositeCanvas.prototype.addLayer = function(canvas, width, height) {
 /** remove a canvas */
 CompositeCanvas.prototype.removeLayer = function(canvas) {
     for (var i = 0, n = this.canvasLayer.length; i < n; i++) {
-	    if (this.canvasLayer[i] == canvas) {
-		    this.canvasLayer.splice(i, 1); 	
-			this.elements.splice(i, 1);
-			var ele = document.getElementById(canvas);
-			ele.parentNode.removeChild(ele);
-		} 
-	}			
+        if (this.canvasLayer[i] == canvas) {
+	    this.canvasLayer.splice(i, 1); 	
+	    this.elements.splice(i, 1);
+	    var ele = document.getElementById(canvas);
+	    ele.parentNode.removeChild(ele);
+	} 
+    }			
 }				
 					
 /** copy canvas */            						
 CompositeCanvas.prototype.canvasToCanvas = function(c1, c2) {								
-	var curCanvas = document.getElementById(c1), bufCtx = this.getCtx(c2);									
-	bufCtx.drawImage(curCanvas, 0, 0);
-	return true;
+    var curCanvas = document.getElementById(c1), bufCtx = this.getCtx(c2);									
+    bufCtx.drawImage(curCanvas, 0, 0);
+    return true;
 }
-
-
 
