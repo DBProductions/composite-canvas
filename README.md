@@ -3,16 +3,16 @@
 Helper object to handle n canvas elements as layer.
 
 Create a composite canvas
-`var c = new CompositeCanvas(width, height);`
+    `var c = new CompositeCanvas(width, height);`
 
 Add layer
-`c.addLayer(id);`
+    `c.addLayer(id);`
 
 Get canvas context
-`var ctx = c.getCtx(id);`
+    `var ctx = c.getCtx(id);`
 
 Copy layer to layer
-`c.canvasToCanvas(id1, id2);`
+    `c.canvasToCanvas(id1, id2);`
 
 Remove layer
-`c.removeLayer(id);`
+    `c.removeLayer(id);`

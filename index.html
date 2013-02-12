@@ -1,37 +1,37 @@
 <html>
     <head>
     	<style>canvas {border:1px solid #000;margin-right:15px;}</style>
-	<script src="composite-canvas.js" type="text/javascript"></script>
+	    <script src="composite-canvas.js" type="text/javascript"></script>
     </head>
     <body>
-	<script>		
-	window.onload = function () {					
+	    <script>		
+	    window.onload = function () {					
             var width = 200, height = 200;   		
-	    var compoCanvas = new CompositeCanvas(width, height);
-	    compoCanvas.addLayer('canvas1');
-	    compoCanvas.addLayer('canvas2');			
-	    compoCanvas.addLayer('canvas3');			
-	    compoCanvas.addLayer('canvas4');
+	        var compoCanvas = new CompositeCanvas(width, height);
+	        compoCanvas.addLayer('canvas1');
+	        compoCanvas.addLayer('canvas2');			
+	        compoCanvas.addLayer('canvas3');			
+	        compoCanvas.addLayer('canvas4');
 
             var ctx = compoCanvas.getCtx('canvas1', '#f00');
-	    ctx.fillRect(0, 0, width/2, height);
+	        ctx.fillRect(0, 0, width/2, height);
 			
-	    var ctx = compoCanvas.getCtx('canvas2', '#0f0');
-	    ctx.fillRect(width/2, 0, width, height);
+	        var ctx = compoCanvas.getCtx('canvas2', '#0f0');
+	        ctx.fillRect(width/2, 0, width, height);
 			
-	    var ctx = compoCanvas.getCtx('canvas3', '#00f');
-	    ctx.fillRect(width/2, 0, width, height/2);
+	        var ctx = compoCanvas.getCtx('canvas3', '#00f');
+	        ctx.fillRect(width/2, 0, width, height/2);
 			
-	    compoCanvas.canvasToCanvas('canvas1', 'canvas4');
-	    compoCanvas.removeLayer('canvas1');
+	        compoCanvas.canvasToCanvas('canvas1', 'canvas4');
+	        compoCanvas.removeLayer('canvas1');
 			
-	    compoCanvas.canvasToCanvas('canvas2', 'canvas4');
-	    compoCanvas.canvasToCanvas('canvas3', 'canvas4');
+	        compoCanvas.canvasToCanvas('canvas2', 'canvas4');
+	        compoCanvas.canvasToCanvas('canvas3', 'canvas4');
 			
-	    var ctx = compoCanvas.getCtx('canvas4');
-            ctx.font = "bold 20pt Calibri";
-	    ctx.fillText('Canvas', 50, 50);
-	}
-	</script>
+	        var ctx = compoCanvas.getCtx('canvas4');
+                ctx.font = "bold 20pt Calibri";
+	        ctx.fillText('Canvas', 50, 50);
+	    }
+	    </script>
     </body>
 </html>
