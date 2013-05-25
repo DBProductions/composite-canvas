@@ -1,0 +1,53 @@
+<html>
+    <head>
+    	<style>canvas {border:1px solid #000;margin-right:15px;}</style>
+        <script src="../compositeCanvas.min.js" type="text/javascript"></script>
+        <script>
+        (function() {
+            var requestAnimationFrame = window.requestAnimationFrame || 
+                                        window.mozRequestAnimationFrame ||
+                                        window.webkitRequestAnimationFrame || 
+                                        window.msRequestAnimationFrame;
+            window.requestAnimationFrame = requestAnimationFrame;
+        })();
+        </script>
+    </head>
+    <body>
+	    <script>		
+	    window.onload = function () {					
+            var width = 200, height = 200;   		
+            var compoCanvas = new CompositeCanvas(width, height);
+            compoCanvas.addLayer('canvas1');
+            compoCanvas.addLayer('canvas2');			
+            compoCanvas.addLayer('canvas3');
+
+	        loop();
+			function loop() {
+				var rand = Math.floor(Math.random()*9);
+
+                var ctx = compoCanvas.getCtx('canvas1', '#f0' + rand);
+                ctx.fillRect(0, 0, width/2, height);
+			
+                var ctx = compoCanvas.getCtx('canvas2', '#' + rand + 'f0');
+                ctx.fillRect(width/2, 0, width, height);
+			    
+                compoCanvas.addLayer('canvas4');
+                var ctx = compoCanvas.getCtx('canvas4', '#0' + rand + 'f');
+                ctx.fillRect(width/2, 0, width, height/2);
+
+                compoCanvas.copyC2C('canvas1', 'canvas3');
+                compoCanvas.copyC2C('canvas2', 'canvas3');
+
+                compoCanvas.copyC2C('canvas4', 'canvas3');
+                compoCanvas.removeLayer('canvas4');
+
+                var ctx = compoCanvas.getCtx('canvas3');
+                    ctx.font = "bold 20pt Calibri";
+                ctx.fillText('Canvas', 50, 50);
+
+                requestAnimationFrame(loop);
+            }
+        }
+        </script>
+    </body>
+</html>
