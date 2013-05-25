@@ -1,6 +1,6 @@
 /**
  * composite canvas
- * handle n canvas element
+ * handle n canvas element as layer
  */
 var CompositeCanvas = function(width, height)  {
 	"use strict";
