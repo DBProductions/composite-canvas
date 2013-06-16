@@ -21,7 +21,7 @@ module.exports = function(grunt) {
             }
         },
         min: {
-            minarray: {
+            compositecanvas: {
                 src: ['src/compositeCanvas.js'],
                 dest: 'compositeCanvas.min.js'
             }

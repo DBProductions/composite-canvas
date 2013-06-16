@@ -3,7 +3,7 @@
  * handle n canvas element as layer
  */
 var CompositeCanvas = function(width, height)  {
-	"use strict";
+    "use strict";
     this.canvasLayer = [];
     this.elements = [];
     this.color = '#fff';
