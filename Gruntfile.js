@@ -24,7 +24,7 @@ module.exports = function(grunt) {
                 squeeze: {dead_code: false},
                 codegen: {quote_keys: true}
             },
-            mytarget: {
+            compositeCanvas: {
                 files: {
                     'compositeCanvas.min.js': ['src/compositeCanvas.js']
                 }
