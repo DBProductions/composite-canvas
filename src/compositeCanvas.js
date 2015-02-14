@@ -13,8 +13,8 @@ var CompositeCanvas = function(width, height)  {
      * get context
      */
     this.getCtx = function getCtx(canvas, color) {
-        var c = document.querySelector('#' + canvas);
-        var ctx = c.getContext('2d');
+        var c = document.querySelector('#' + canvas),
+            ctx = c.getContext('2d');
         if (undefined !== color) {
             ctx.fillStyle = color;  
         } else {
@@ -38,7 +38,7 @@ var CompositeCanvas = function(width, height)  {
      * remove a canvas 
      */
     this.removeLayer = function removeLayer(canvas) {
-        for (var i = 0, n = this.canvasLayer.length; i < n; i++) {
+        for (var i = 0, n = this.canvasLayer.length; i < n; i += 1) {
             if (this.canvasLayer[i] === canvas) {
                 this.canvasLayer.splice(i, 1);
                 this.elements.splice(i, 1);

@@ -21,3 +21,12 @@ Copy layer to layer
 Remove layer
     
     c.removeLayer(id);
+
+## Build it
+This repository use Grunt to build the source.
+
+    npm install
+    grunt
+
+## Feedback
+Star this repo if you found it useful. Use the github issue tracker to give feedback on this repo.

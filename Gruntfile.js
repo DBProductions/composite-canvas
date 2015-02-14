@@ -4,19 +4,11 @@ module.exports = function(grunt) {
         jshint: {
             allFiles: ['grunt.js', 'src/**/*.js'],
             options: {
-                curly: true,
-                eqeqeq: true,
-                eqnull: true,
-                browser: true,
-                node: true,
-                immed: false,
-                latedef: true,
-                newcap: true,
-                noarg: true,
-                sub: true,
-                undef: true,
-                boss: true              
+                jshintrc: '.jshintrc'
             }
+        },
+        jscs: {
+            src: "src/**/*.js"
         },
         uglify: {
             options: {
@@ -34,9 +26,9 @@ module.exports = function(grunt) {
     
     // Load the plugin that provides the "uglify" task.
     grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-jscs-checker');
     grunt.loadNpmTasks('grunt-contrib-uglify');
 
     // Default task(s).
-    grunt.registerTask('default', ['jshint', 'uglify']);
-    //grunt.registerTask('default', 'lint min');
+    grunt.registerTask('default', ['jshint', 'jscs', 'uglify']);
 };
