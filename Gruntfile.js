@@ -2,7 +2,7 @@ module.exports = function(grunt) {
     'use strict';
     grunt.initConfig({
         jshint: {
-            allFiles: ['grunt.js', 'src/**/*.js'],
+            allFiles: ['Gruntfile.js', 'src/**/*.js'],
             options: {
                 jshintrc: '.jshintrc'
             }
@@ -24,7 +24,6 @@ module.exports = function(grunt) {
         }
     });
     
-    // Load the plugin that provides the "uglify" task.
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-jscs-checker');
     grunt.loadNpmTasks('grunt-contrib-uglify');
